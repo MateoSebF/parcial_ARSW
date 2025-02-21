@@ -24,6 +24,10 @@ public class HttpResponse {
         this.body = body;
     }
 
+    public String makeJson(){
+        return "";
+    }
+
     public String toString() {
         String outputLine = "HTTP/1.1 "+statusCode+" OK\r\n"
                 + "Content-Type: "+contentType+"\r\n"
