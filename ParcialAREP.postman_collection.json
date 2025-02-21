@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "8521289b-3172-4c13-a8a9-f118cbf266ce",
+		"name": "ParcialAREP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33334270",
+		"_collection_link": "https://testeci.postman.co/workspace/TestEci-Workspace~1d36ca68-dbcc-4fe9-8928-836eb052ae5b/collection/33334270-8521289b-3172-4c13-a8a9-f118cbf266ce?action=share&source=collection_link&creator=33334270"
+	},
+	"item": [
+		{
+			"name": "binary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:45000/consulta?comando=binaryInvoke(java.lang.Math,max,double,4.5,double,3333.7)",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "45000",
+					"path": [
+						"consulta"
+					],
+					"query": [
+						{
+							"key": "comando",
+							"value": "binaryInvoke(java.lang.Math,max,double,4.5,double,3333.7)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "unary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:45000/consulta?comando=unaryInvoke(java.lang.Math,abs,double,-44.5)",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "45000",
+					"path": [
+						"consulta"
+					],
+					"query": [
+						{
+							"key": "comando",
+							"value": "unaryInvoke(java.lang.Math,abs,double,-44.5)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "invoke",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:45000/consulta?comando=invoke(java.lang.System,getenv)",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "45000",
+					"path": [
+						"consulta"
+					],
+					"query": [
+						{
+							"key": "comando",
+							"value": "invoke(java.lang.System,getenv)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "class",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:45000/consulta?comando=Class(java.lang.System)",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "45000",
+					"path": [
+						"consulta"
+					],
+					"query": [
+						{
+							"key": "comando",
+							"value": "Class(java.lang.System)"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

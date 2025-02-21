@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h1>Form to class</h1>
+    <form action="/class">
+        <label for="name1">Class:</label><br>
+        <input type="text" id="name1" name="name" value="java.lang.System"><br><br>
+        <input type="button" value="Submit" onclick="loadGetMsgClass()">
+    </form>
+    <div id="getrespmsg"></div>
+
+    <script>
+        function loadGetMsgClass() {
+            let nameVar = document.getElementById("name1").value;
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                document.getElementById("getrespmsg").innerHTML =
+                    this.responseText;
+            }
+            xhttp.open("GET", "http://localhost:45000/consulta?comando=Class(" + nameVar + ")");
+            xhttp.send();
+        }
+    </script>
+
+    <h1>Form to invoke</h1>
+    <form action="/invoke">
+        <label for="name">invoke:</label><br>
+        <input type="text" id="name2" name="name" value="java.lang.System"><br><br>
+        <label for="name">method:</label><br>
+        <input type="text" id="method2" name="method" value="getenv"><br><br>
+        <input type="button" value="Submit" onclick="loadGetEnv()">
+    </form>
+    <div id="getrespmsg1"></div>
+
+    <script>
+        function loadGetEnv() {
+            let nameVar = document.getElementById("name2").value;
+            let method = document.getElementById("method2").value;
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                document.getElementById("getrespmsg1").innerHTML =
+                    this.responseText;
+            }
+            xhttp.open("GET", "http://localhost:45000/consulta?comando=invoke(" + nameVar + "," + method + ")");
+            xhttp.send();
+        }
+    </script>
+
+    <h1>Form to unary</h1>
+    <form action="/unaryInvoke">
+        <label for="name">invoke:</label><br>
+        <input type="text" id="name3" name="name" value="java.lang.Math"><br><br>
+        <label for="method">method:</label><br>
+        <input type="text" id="method3" name="method" value="abs"><br><br>
+        <label for="type1">type:</label><br>
+        <input type="text" id="type31" name="type1" value="double"><br><br>
+        <label for="value1">value:</label><br>
+        <input type="text" id="value31" name="value1" value="-4.5"><br><br>
+        <input type="button" value="Submit" onclick="loadGetUnary()">
+    </form>
+    <div id="getrespmsg2"></div>
+
+    <script>
+        function loadGetUnary() {
+            let nameVar = document.getElementById("name3").value;
+            let method = document.getElementById("method3").value;
+            let type1 = document.getElementById("type31").value;
+            let value1 = document.getElementById("value31").value;
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                document.getElementById("getrespmsg2").innerHTML =
+                    this.responseText;
+            }
+            xhttp.open("GET", "http://localhost:45000/consulta?comando=unaryInvoke(" + nameVar + "," + method + "," + type1 + "," + value1 + ")");
+            xhttp.send();
+        }
+    </script>
+
+    <h1>Form to binary</h1>
+    <form action="/binaryInvoke">
+        <label for="name">invoke:</label><br>
+        <input type="text" id="name4" name="name" value="java.lang.Math"><br><br>
+        <label for="method">method:</label><br>
+        <input type="text" id="method4" name="method" value="max"><br><br>
+        <label for="type1">type1:</label><br>
+        <input type="text" id="type41" name="type1" value="double"><br><br>
+        <label for="value1">value1:</label><br>
+        <input type="text" id="value41" name="value1" value="-4.5"><br><br>
+        <label for="type2">type2:</label><br>
+        <input type="text" id="type42" name="type2" value="double"><br><br>
+        <label for="value2">value2:</label><br>
+        <input type="text" id="value42" name="value2" value="-4.5"><br><br>
+        <input type="button" value="Submit" onclick="loadGetBinary()">
+    </form>
+    <div id="getrespmsg3"></div>
+
+    <script>
+        function loadGetBinary() {
+            let nameVar = document.getElementById("name4").value;
+            let method = document.getElementById("method4").value;
+            let type1 = document.getElementById("type41").value;
+            let value1 = document.getElementById("value41").value;
+            let type2 = document.getElementById("type42").value;
+            let value2 = document.getElementById("value42").value;
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                document.getElementById("getrespmsg3").innerHTML =
+                    this.responseText;
+            }
+            xhttp.open("GET", "http://localhost:45000/consulta?comando=binaryInvoke(" + nameVar + "," + method + "," + type1 + "," + value1 +"," + type2 + "," + value2+ ")");
+            xhttp.send();
+        }
+    </script>
+</body>
+
+</html>
